@@ -15,6 +15,7 @@ let siguienteId = 1;
 
 // GET /api/estudiantes
 router.get("/", (req, res) => {
+  // #swagger.description = 'Obtiene la lista de estudiantes'
   const bootcamp = req.query.bootcamp;
 
   if (bootcamp) {
@@ -31,6 +32,7 @@ router.get("/", (req, res) => {
 
 // GET /api/estudiantes/:id
 router.get("/:id", (req, res) => {
+  // #swagger.description = 'Obtiene un estudiante por su ID'
   const id = Number(req.params.id);
 
   const estudiante = estudiantes.find((estudiante) => estudiante.id === id);
@@ -47,6 +49,7 @@ router.get("/:id", (req, res) => {
 
 // POST /api/estudiantes
 router.post("/", (req, res) => {
+  // #swagger.description = 'Crea un nuevo estudiante'
   const { nombre, email, bootcamp } = req.body;
 
   if (!email) {
@@ -71,6 +74,7 @@ router.post("/", (req, res) => {
 
 // PUT /api/estudiantes/:id
 router.put("/:id", (req, res) => {
+  // #swagger.description = 'Actualiza un estudiante existente'
   const id = Number(req.params.id);
 
   const estudiante = estudiantes.find((estudiante) => estudiante.id === id);
@@ -93,6 +97,7 @@ router.put("/:id", (req, res) => {
 
 // DELETE /api/estudiantes/:id
 router.delete("/:id", (req, res) => {
+  // #swagger.description = 'Elimina un estudiante existente'
   const id = Number(req.params.id);
 
   const indice = estudiantes.findIndex((estudiante) => estudiante.id === id);
